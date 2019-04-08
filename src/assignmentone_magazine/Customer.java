@@ -19,7 +19,7 @@ public abstract class Customer {
     private String lastName;
     private String emailAddress;
     private int subscriptionID;
-    public enum PaymentType{CreditCard, DirectDebit};
+    public enum PaymentType{CreditCard, DirectDebit, Patron};
     private PaymentType paymentMethod;
     
     /**

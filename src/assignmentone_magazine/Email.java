@@ -6,14 +6,11 @@
 package assignmentone_magazine;
 
 /**
+ *
  * @author becky
  */
-
-
-public class SubscriptionManager {
-    private Subscribers magazineClients = new Subscribers();
-    
-    public  
+public class Email 
+{
     
     
     

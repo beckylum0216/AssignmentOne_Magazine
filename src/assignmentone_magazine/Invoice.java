@@ -48,7 +48,7 @@ public class Invoice
     * @see 
     * @since 1.0
     */
-    public void SetCustomerInvoice(Customer inputCustomer)
+    public void SetSubscriptionInvoice(Customer inputCustomer)
     {
         this.invoiceCustomer = inputCustomer;
     }

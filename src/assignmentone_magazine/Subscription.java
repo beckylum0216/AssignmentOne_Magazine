@@ -14,6 +14,7 @@ import java.util.HashMap;
  */
 public class Subscription {
     private int subscriptionID;
+    private Datum subscriptionDate;
     HashMap <Integer, Magazine> allMagazines;
     HashMap <Integer, Magazine> magazines;
     HashMap <Integer, ArrayList<Supplement>> supplements;
@@ -33,6 +34,16 @@ public class Subscription {
     public int GetSubscriptionID()
     {
         return this.subscriptionID;
+    }
+    
+    public void SetSubscriptionDate(Datum inputDate)
+    {
+        this.subscriptionDate = inputDate;
+    }
+    
+    public Datum GetSubscriptionDate()
+    {
+        return this.subscriptionDate;
     }
     
     public HashMap<Integer, Magazine> GetAllMagazines()
