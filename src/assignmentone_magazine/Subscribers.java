@@ -14,14 +14,19 @@ import java.util.List;
  * @author becky
  */
 public class Subscribers {
-    HashMap <Integer, Customer> allCustomers = new HashMap<>();
-    HashMap <Integer, Customer> patron = new HashMap<>();
-    HashMap <Integer, ArrayList<Associate>> associate = new HashMap<>();
+    HashMap <Integer, Customer> allCustomers;
+    HashMap <Integer, Customer> patron;
+    HashMap <Integer, ArrayList<Associate>> associate;
     
+    public Subscribers()
+    {
+        this.allCustomers = new HashMap<>();
+        this.patron = new HashMap<>();
+        this.associate = new HashMap<>();
+    }
     
     /**
     * <p> This is the patron manager
-    * <a href="http://www.supermanisthegreatest.com">Superman!</a>
     * </p>
     * @param newCustomer the new customer to be added
     * @return void
@@ -37,7 +42,6 @@ public class Subscribers {
     
     /**
     * <p> This is the associate manager
-    * <a href="http://www.supermanisthegreatest.com">Superman!</a>
     * </p>
     * @param associateCustomer the new associate to be added
     * @return void
