@@ -11,19 +11,8 @@ package assignmentone_magazine;
  */
 public abstract class Magazine 
 {
-    private int magazineID;
     private String magazineName;
     private float magazineCost;
-    
-    public void SetMagazineID(int inputID)
-    {
-        this.magazineID = inputID;
-    }
-    
-    public int GetMagazineID()
-    {
-        return this.magazineID;
-    }
     
     public void SetMagazineName(String inputName)
     {
@@ -37,7 +26,15 @@ public abstract class Magazine
     
     public void SetMagazineCost(float inputCost)
     {
-        this.magazineCost = inputCost;
+        if(inputCost <= 0)
+        {
+            throw new IllegalArgumentException("Cost cannot be less than zero or zero");
+        }
+        else
+        {
+            this.magazineCost = inputCost;
+        }
+        
     }
     
     public float GetMagazineCost()

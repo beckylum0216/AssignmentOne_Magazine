@@ -5,6 +5,10 @@
  */
 package assignmentone_magazine;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  *
  * @author becky
@@ -21,23 +25,39 @@ package assignmentone_magazine;
 
 public class Invoice 
 {
-    private int invoiceID;
-    private Subscription invoiceSubscription;
+    private String invoiceID;
+    private String patronEmail;
+    private Customer customer;
+    private HashMap <String, Subscription> subscriptions;
     private Datum invoiceDate;
     
-    public Invoice(Subscription inputSubscription)
+    public Invoice(String inputID, String inputEmail, Customer inputCustomer, HashMap<String, Subscription> inputSubscriptions, Datum inputDate)
     {
-        this.invoiceSubscription = inputSubscription;
+        this.invoiceID = inputID;
+        this.patronEmail = inputEmail;
+        this.customer = inputCustomer;
+        this.subscriptions = inputSubscriptions;
+        this.invoiceDate = inputDate;
     }
     
-    public void SetInvoiceID(int inputID)
+    public void SetInvoiceID(String inputID)
     {
         this.invoiceID = inputID;
     }
     
-    public int GetInvoiceID()
+    public String GetInvoiceID()
     {
         return this.invoiceID;
+    }
+    
+    public void SetPatronEmail(String inputEmail)
+    {
+        this.patronEmail = inputEmail;
+    }
+    
+    public String GetPatronEmail()
+    {
+        return this.patronEmail;
     }
     
     /**
@@ -48,9 +68,9 @@ public class Invoice
     * @see 
     * @since 1.0
     */
-    public void SetSubscriptionInvoice(Customer inputCustomer)
+    public void SetCustomer(Customer inputCustomer)
     {
-        this.invoiceCustomer = inputCustomer;
+        this.customer = inputCustomer;
     }
     
     /**
@@ -61,9 +81,9 @@ public class Invoice
     * @see 
     * @since 1.0
     */
-    public Customer GetCustomerInvoice()
+    public Customer GetCustomer()
     {
-        return this.invoiceCustomer;
+        return this.customer;
     }
     
     /**
@@ -100,13 +120,22 @@ public class Invoice
     
     public void PrintInvoice()
     {
-        for(int ii = 0; ii < invoiceCustomer.GetSubscriptions().size(); ii += 1)
+        float totalInvoice = 0.00f;
+        System.out.println("Invoice ID: " + this.invoiceID + " Date: " + this.invoiceDate);
+        
+        System.out.println("Name:" + this.customer.GetFirstName() + " " + this.customer.GetLastName());
+        // itemise account
+        for(Map.Entry pair: this.subscriptions.entrySet())
         {
-            System.out.print(
-                    "Invoice ID: " + this.invoiceID 
-                    + " Customer: " + invoiceCustomer.GetFirstName() + " " + invoiceCustomer.GetLastName() 
-                    + " Magazine: " + invoiceCustomer.GetSubscriptions().get(ii).GetMagazineName()
-                    + " Cost: " + invoiceCustomer.GetSubscriptions().get(ii).GetMagazineCost());
+            Subscription tempSubscription = (Subscription) pair.getValue();
+            System.out.println(
+                " Magazine: " + tempSubscription.GetSubbedPublication().GetMagazineName()
+                + " Cost: " + tempSubscription.GetSubbedPublication().GetMagazineCost());
+            totalInvoice += tempSubscription.GetSubbedPublication().GetMagazineCost();
         }
+        
+        System.out.println("Total Invoice: " + totalInvoice);
+        
     }
+    
 }

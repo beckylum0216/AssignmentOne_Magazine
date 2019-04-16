@@ -13,38 +13,14 @@ import java.util.ArrayList;
  */
 public abstract class Customer {
     
-    public enum customerType{associate, customer};
-    private int customerID;
+    
     private String firstName;
     private String lastName;
     private String emailAddress;
-    private int subscriptionID;
     public enum PaymentType{CreditCard, DirectDebit, Patron};
     private PaymentType paymentMethod;
     
-    /**
-    * <p> This is the setter for the customerID. This is the unique identifier</p>
-    * @param inputID the new id to be inputted.
-    * @return void
-    * @see 
-    * @since 1.0
-    */
-    public void SetCustomerID(int inputID)
-    {
-        this.customerID = inputID;
-    }
     
-    /**
-    * <p> This is the getter for the customerID. </p>
-    * @param void
-    * @return void
-    * @see 
-    * @since 1.0
-    */
-    public int GetCustomerID()
-    {
-        return this.customerID;
-    }
     
     /**
     * <p> This is the setter for the first name. Allows the first name to be stored</p>
@@ -119,29 +95,7 @@ public abstract class Customer {
         return this.emailAddress;
     }
     
-    /**
-    * <p> This is the mutator for the subscriptions. </p>
-    * @param inputMagazine
-    * @return void
-    * @see 
-    * @since 1.0
-    */
-    public void AddSubscriptionID(int inputSubscriptionID)
-    {
-        this.subscriptionID = inputSubscriptionID;
-    }
     
-    /**
-    * <p> This is the accessor for the subscriptions. </p>
-    * @param void
-    * @return subscriptions. gets a list of subscriptions
-    * @see 
-    * @since 1.0
-    */
-    public int GetSubscriptions()
-    {
-        return this.subscriptionID;
-    }
     
     
     /**

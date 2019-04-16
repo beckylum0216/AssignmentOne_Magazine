@@ -11,7 +11,7 @@ package assignmentone_magazine;
  */
 public abstract class Supplement extends Magazine {
     
-    private int periodicalID;
+    private String mainMagazineName;
 
     /**
     * <p> This is the mutator for the periodicalID. The periodical id is the magazine's 
@@ -21,9 +21,9 @@ public abstract class Supplement extends Magazine {
     * @see 
     * @since 1.0
     */
-    public void SetPeriodicalID(int inputID)
+    public void SetMainMagazineName(String inputName)
     {
-        this.periodicalID = inputID;
+        this.mainMagazineName = inputName;
     }
     
     /**
@@ -34,9 +34,9 @@ public abstract class Supplement extends Magazine {
     * @see 
     * @since 1.0
     */
-    public int GetPeriodicalID()
+    public String GetMainMagazineName()
     {
-        return this.periodicalID;
+        return this.mainMagazineName;
     }
         
 }

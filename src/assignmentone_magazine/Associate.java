@@ -11,7 +11,7 @@ package assignmentone_magazine;
  */
 public class Associate extends Customer 
 {    
-    private int patronID;
+    private String patronEmail;
     
     /**
     * <p> This is the setter for the patronID. The patron id is the customer's 
@@ -21,9 +21,9 @@ public class Associate extends Customer
     * @see 
     * @since 1.0
     */
-    public void SetPatronID(int inputID)
+    public void SetPatronEmail(String inputEmail)
     {
-        this.patronID = inputID;
+        this.patronEmail = inputEmail;
     }
     
     /**
@@ -34,8 +34,8 @@ public class Associate extends Customer
     * @see 
     * @since 1.0
     */
-    public int GetPatronID()
+    public String GetPatronEmail()
     {
-        return this.patronID;
+        return this.patronEmail;
     }
 }

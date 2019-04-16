@@ -6,34 +6,33 @@
 package assignmentone_magazine;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  *
  * @author becky
  */
 public class Subscription {
-    private int subscriptionID;
+    
+    private String subscriptionEmail;
     private Datum subscriptionDate;
-    HashMap <Integer, Magazine> allMagazines;
-    HashMap <Integer, Magazine> magazines;
-    HashMap <Integer, ArrayList<Supplement>> supplements;
+    private Magazine subbedPublication;
+    private boolean subscriptionActive;
     
-    public Subscription()
+    Subscription(String inputEmail, Datum inputDate)
     {
-        this.allMagazines = new HashMap<>();
-        this.magazines = new HashMap <>();
-        this.supplements = new HashMap <>();
+        this.subscriptionEmail = inputEmail;
+        this.subscriptionDate = inputDate;
+       
     }
     
-    public void SetSubscriptionID(int inputSubID)
+    public void SetSubscriptionEmail(String inputSubscriptionEmail)
     {
-        this.subscriptionID = inputSubID;
+        this.subscriptionEmail = inputSubscriptionEmail;
     }
     
-    public int GetSubscriptionID()
+    public String GetSubscriptionEmail()
     {
-        return this.subscriptionID;
+        return this.subscriptionEmail;
     }
     
     public void SetSubscriptionDate(Datum inputDate)
@@ -46,98 +45,28 @@ public class Subscription {
         return this.subscriptionDate;
     }
     
-    public HashMap<Integer, Magazine> GetAllMagazines()
+    public void SetSubbedPublication(Magazine inputPublication)
     {
-        return this.allMagazines;
+        this.subbedPublication = inputPublication;
     }
     
-    public HashMap<Integer, Magazine> GetMagazines()
+    public Magazine GetSubbedPublication()
     {
-        return this.magazines;
+        return this.subbedPublication;
     }
     
-    public HashMap <Integer, ArrayList<Supplement>> GetSupplement()
+    public void SetActiveSubscriptionTrue()
     {
-        return this.supplements;
+        this.subscriptionActive = true;
     }
     
-    /**
-    * <p> This is the patron manager
-    * </p>
-    * @param newMagazine the new magazine to be added
-    * @return void
-    * @see 
-    * @since 1.0
-    */
-    public void AddMagazine(Magazine newMagazine)
+    public void SetActiveSubscriptionFalse()
     {
-        allMagazines.put(newMagazine.GetMagazineID(), newMagazine);
-        magazines.put(newMagazine.GetMagazineID(), newMagazine);
+        this.subscriptionActive = false;
     }
     
-    /**
-    * <p> This is the associate manager
-    * </p>
-    * @param supplementMagazine the new associate to be added
-    * @return void
-    * @see 
-    * @since 1.0
-    */
-    public void AddSupplement(Supplement supplementMagazine)
+    public boolean GetActiveSubscription()
     {
-        // checks if magazine exists before adding the supplement
-        if(magazines.get(supplementMagazine.GetPeriodicalID()).hashCode() > 0)
-        {
-            allMagazines.put(supplementMagazine.GetMagazineID(), supplementMagazine);
-            supplements.get(supplementMagazine.GetPeriodicalID()).add(supplementMagazine);
-        }
-        else
-        {
-            allMagazines.put(supplementMagazine.GetMagazineID(), supplementMagazine);
-            ArrayList <Supplement> tempList = new ArrayList<>();
-            tempList.add(supplementMagazine);
-            supplements.put(supplementMagazine.GetPeriodicalID(), tempList);
-        }
+        return this.subscriptionActive;
     }
-    
-     /**
-    * <p> This is the associate manager
-    * </p>
-    * @param targetMagazine the magazine to be removed
-    * @return void
-    * @see 
-    * @since 1.0
-    */
-    public void RemoveMagazine(Magazine targetMagazine)
-    {
-        // if the magazine is removed the supplement is removed too  cascase delete
-        if(supplements.get(targetMagazine.GetMagazineID()).hashCode() > 0)
-        {
-            magazines.remove(targetMagazine.GetMagazineID());
-            allMagazines.remove(targetMagazine.GetMagazineID());
-            supplements.remove(targetMagazine.GetMagazineID());
-        }
-        else
-        {
-            magazines.remove(targetMagazine.GetMagazineID());
-            allMagazines.remove(targetMagazine.GetMagazineID());
-        }
-        
-    }
-    
-    /**
-    * <p> This is the associate manager
-    * </p>
-    * @param targetSupplement the new associate to be removed
-    * @return void
-    * @see 
-    * @since 1.0
-    */
-    public void RemoveSupplement(Supplement targetSupplement)
-    {
-        supplements.get(targetSupplement.GetPeriodicalID()).remove(targetSupplement.GetMagazineID());
-    }
-    
-    
-    
 }
