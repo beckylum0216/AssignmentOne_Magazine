@@ -13,6 +13,12 @@ public class Associate extends Customer
 {    
     private String patronEmail;
     
+    public Associate(String inputFirstName, String inputLastName, String inputEmail, String inputPayment, String inputPatron)
+    {
+        super(inputFirstName,inputLastName, inputEmail, inputPayment);
+        this.patronEmail = inputPatron;
+    }
+    
     /**
     * <p> This is the setter for the patronID. The patron id is the customer's 
     * id used to link the associate to the customer account</p>

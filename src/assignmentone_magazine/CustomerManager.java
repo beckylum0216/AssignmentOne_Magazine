@@ -35,7 +35,6 @@ public class CustomerManager {
     */
     public void AddPatron(Customer newCustomer)
     {
-        
         patron.put(newCustomer.GetEmailAddress(), newCustomer);
     }
     
@@ -107,6 +106,11 @@ public class CustomerManager {
         associate.get(targetAssociate.GetPatronEmail()).remove(targetAssociate.GetEmailAddress());
     }
     
+    public HashMap<String, HashMap<String, Associate>> GetAssociates()
+    {
+        return this.associate;
+    }
+    
     /**
     * <p> This is to get a derived list of all customers</p>
     * @param 
@@ -121,7 +125,8 @@ public class CustomerManager {
         
         resultList.putAll(patron);
         
-        for (Map.Entry pair : this.associate.entrySet()) {
+        for (Map.Entry pair : this.associate.entrySet()) 
+        {
             HashMap<String, Customer> tempAssociate = (HashMap<String, Customer>) pair.getValue();
             resultList.putAll(tempAssociate);
         }

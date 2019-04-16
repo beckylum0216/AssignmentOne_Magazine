@@ -11,15 +11,22 @@ import java.util.ArrayList;
  *
  * @author becky
  */
-public abstract class Customer {
+public class Customer {
     
     
     private String firstName;
     private String lastName;
     private String emailAddress;
-    public enum PaymentType{CreditCard, DirectDebit, Patron};
-    private PaymentType paymentMethod;
+    //public enum PaymentType{CreditCard, DirectDebit, Patron};
+    private String paymentMethod;
     
+    public Customer(String inputFirstName, String inputLastName, String inputEmail, String inputPayment)
+    {
+        this.firstName = inputFirstName;
+        this.lastName = inputLastName;
+        this.emailAddress = inputEmail;
+        this.paymentMethod = inputPayment;
+    }
     
     
     /**
@@ -105,7 +112,7 @@ public abstract class Customer {
     * @see 
     * @since 1.0
     */
-    public void SetPaymentMethod(PaymentType inputType)
+    public void SetPaymentMethod(String inputType)
     {
         this.paymentMethod = inputType;
     }
@@ -118,7 +125,7 @@ public abstract class Customer {
     * @see 
     * @since 1.0
     */
-    public PaymentType GetPaymentMethod()
+    public String GetPaymentMethod()
     {
         return this.paymentMethod;
     }
