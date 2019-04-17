@@ -9,9 +9,15 @@ package assignmentone_magazine;
  *
  * @author becky
  */
-public abstract class Supplement extends Magazine {
+public class Supplement extends Magazine {
     
     private String mainMagazineName;
+    
+    public Supplement(String inputName, float inputCost, String inputMainMagazine)
+    {
+        super(inputName, inputCost);
+        this.mainMagazineName = inputMainMagazine;
+    }
 
     /**
     * <p> This is the mutator for the periodicalID. The periodical id is the magazine's 

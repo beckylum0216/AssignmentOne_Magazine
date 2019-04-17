@@ -79,39 +79,53 @@ public class ServiceManager {
                 billedInvoice.put(currentCustomer.GetEmailAddress(), tempMap);
             }
             
-            HashMap<String, Associate> associateMap = this.customerList.GetAssociates().get(currentCustomer.GetEmailAddress());
-            for(Map.Entry associatePair: associateMap.entrySet())
+            if(this.customerList.GetAssociates().containsKey(currentCustomer.GetEmailAddress()))
             {
-                String patronKey = (String) associatePair.getKey();
-                Customer associateCustomer = (Customer) associatePair.getValue();
-                String invoiceAssociateKey = associateCustomer.GetEmailAddress() 
-                                + Integer.toString(currentDate.getYear()) 
-                                + Integer.toString(currentDate.getMonthValue());
-
-                //HashMap<String, Subscription> customerSubscription;
-                customerSubscription = subscriptionList.get(associateCustomer.GetEmailAddress());
-                //Datum invoiceDate = new Datum(currentDate.getDayOfMonth(), currentDate.getMonthValue(), currentDate.getYear());
-                Invoice associateInvoice = new Invoice(invoiceKey, currentCustomer.GetEmailAddress(), currentCustomer,customerSubscription, invoiceDate);
-
-                if(billedInvoice.containsKey(patronKey))
+                HashMap<String, Associate> associateMap = this.customerList.GetAssociates().get(currentCustomer.GetEmailAddress());
+                System.out.println("Associate Map: "+associateMap);
+                for(Map.Entry associatePair: associateMap.entrySet())
                 {
-                    if(billedInvoice.get(associateCustomer.GetEmailAddress()).containsKey(invoiceKey))
+
+                    String associateKey = (String) associatePair.getKey(); // <-- error here!
+                    Customer associateCustomer = (Customer) associatePair.getValue();
+                    String invoiceAssociateKey = associateCustomer.GetEmailAddress() 
+                                    + Integer.toString(currentDate.getYear()) 
+                                    + Integer.toString(currentDate.getMonthValue());
+
+                    HashMap<String, Subscription> associateSubscription;
+                    associateSubscription = subscriptionList.get(associateCustomer.GetEmailAddress());
+                    //Datum invoiceDate = new Datum(currentDate.getDayOfMonth(), currentDate.getMonthValue(), currentDate.getYear());
+                    Invoice associateInvoice = new Invoice(invoiceAssociateKey, 
+                                                            associateCustomer.GetEmailAddress(), 
+                                                            associateCustomer, 
+                                                            associateSubscription, 
+                                                            invoiceDate);
+
+                    if(billedInvoice.containsKey(currentCustomer.GetEmailAddress()))
                     {
-                        throw new IllegalArgumentException("Invoice Exists");
+                        if(billedInvoice.get(currentCustomer.GetEmailAddress()).containsKey(invoiceAssociateKey))
+                        {
+                            throw new IllegalArgumentException("Invoice Exists");
+                        }
+                        else
+                        {
+                            billedInvoice.get(currentCustomer.GetEmailAddress()).put(invoiceAssociateKey, associateInvoice);
+                        }
                     }
                     else
                     {
-                        billedInvoice.get(patronKey).put(invoiceKey, currentInvoice);
+                        HashMap<String, Invoice> tempMap = new HashMap<>();
+                        tempMap.put(invoiceAssociateKey, associateInvoice);
+                        billedInvoice.put(currentCustomer.GetEmailAddress(), tempMap);
                     }
-                }
-                else
-                {
-                    HashMap<String, Invoice> tempMap = new HashMap<>();
-                    tempMap.put(invoiceKey, currentInvoice);
-                    billedInvoice.put(patronKey, tempMap);
-                }
 
+                }
             }
+            else
+            {
+                throw new IllegalArgumentException("No associate customer linked to patron.");
+            }
+            
             
         }
     }
@@ -128,17 +142,14 @@ public class ServiceManager {
         {
             String customerKey = (String)pair.getKey();
             
-            System.out.println("Invoice for Period: " + currentDate.getYear() + " " + currentDate.getMonth());
+            System.out.println("Statement for Period: " + currentDate.getYear() + " " + currentDate.getMonth());
             HashMap <String, Invoice> customerMap = (HashMap<String, Invoice>) pair.getValue();
             for(Map.Entry customerPair: customerMap.entrySet())
             {
-                String invoiceKey = customerKey 
-                            + Integer.toString(currentDate.getYear()) 
-                            + Integer.toString(currentDate.getMonthValue());
-                if(billedInvoice.get(customerKey).containsKey(invoiceKey))
-                {
-                    billedInvoice.get(customerKey).get(invoiceKey).PrintInvoice();
-                }
+                String invoiceKey = (String)customerPair.getKey();
+                
+                billedInvoice.get(customerKey).get(invoiceKey).PrintInvoice();
+                
             }
             
         } 
@@ -151,6 +162,8 @@ public class ServiceManager {
         // testing if patron exists
         if(customerList.CustomerList().containsKey(newSubscription.GetSubscriptionEmail()))
         {
+            //Boolean check = magazineList.GetAllPublicationList().containsKey(newSubscription.GetSubbedPublication().GetMagazineName());
+            //System.out.println("Magazine State: " + check);
             // testing if magazine exists
             if(magazineList.GetAllPublicationList().containsKey(newSubscription.GetSubbedPublication().GetMagazineName()))
             {
@@ -164,7 +177,7 @@ public class ServiceManager {
                     else
                     {
                         subscriptionList.get(newSubscription.GetSubscriptionEmail()).put(newSubscription.GetSubbedPublication().GetMagazineName(), newSubscription);
-                        subscriptionList.get(newSubscription.GetSubscriptionEmail()).get(newSubscription.GetSubbedPublication().GetMagazineName()).SetActiveSubscriptionTrue();
+                       
                     }
                 }
                 else
@@ -211,8 +224,22 @@ public class ServiceManager {
     
     public void PrintSubscription()
     {
-        
-        
+        for(Map.Entry pair : this.subscriptionList.entrySet())
+        {
+            
+            HashMap<String, Subscription> tempSubs = (HashMap <String, Subscription>) pair.getValue();
+            for(Map.Entry subbedPair: tempSubs.entrySet())
+            {
+                Subscription printSubs = (Subscription) subbedPair.getValue();
+                System.out.println();
+                System.out.println("Subscription Customer: " + printSubs.GetSubscriptionEmail());
+                System.out.println("Subbed Magazine: "+ printSubs.GetSubbedPublication().GetMagazineName());
+                System.out.println("Subscription Cost: " + printSubs.GetSubbedPublication().GetMagazineCost());
+                System.out.println("Subscription Date: " + printSubs.GetSubscriptionDate().toString());
+                System.out.println("Subscription Status: " + printSubs.GetActiveSubscription());
+            }
+            
+        }
     }
     
     

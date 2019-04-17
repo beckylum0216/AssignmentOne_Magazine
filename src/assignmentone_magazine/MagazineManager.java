@@ -26,9 +26,6 @@ public class MagazineManager
         this.supplements = new HashMap <>();
     }
     
-    
-   
-    
     public HashMap<String, Magazine> GetMagazines()
     {
         return this.magazines;
@@ -49,8 +46,15 @@ public class MagazineManager
     */
     public void AddMagazine(Magazine newMagazine)
     {
+        if(!magazines.containsKey(newMagazine.GetMagazineName()))
+        {
+            magazines.put(newMagazine.GetMagazineName(), newMagazine);
+        }
+        else
+        {
+            throw new IllegalArgumentException("Record already exists!");
+        }
         
-        magazines.put(newMagazine.GetMagazineName(), newMagazine);
     }
     
     /**
@@ -66,13 +70,21 @@ public class MagazineManager
         // checks if magazine exists before adding the supplement
         if(magazines.containsKey(supplementMagazine.GetMainMagazineName()))
         {
-            supplements.get(supplementMagazine.GetMainMagazineName()).put(supplementMagazine.GetMagazineName(), supplementMagazine);
+            if(supplements.containsKey(supplementMagazine.GetMainMagazineName()))
+            {
+                supplements.get(supplementMagazine.GetMainMagazineName()).put(supplementMagazine.GetMagazineName(), supplementMagazine);
+            }
+            else
+            {
+                HashMap<String, Supplement> tempMap = new HashMap<>();
+                tempMap.put(supplementMagazine.GetMagazineName(), supplementMagazine);
+                supplements.put(supplementMagazine.GetMainMagazineName(),tempMap);
+            }
+            
         }
         else
         {
-            HashMap<String, Supplement> tempMap = new HashMap<>();
-            tempMap.put(supplementMagazine.GetMainMagazineName(), supplementMagazine);
-            supplements.put(supplementMagazine.GetMainMagazineName(),tempMap);
+            throw new IllegalArgumentException("Magazine must exist before adding supplement!");
         }
     }
     
@@ -131,6 +143,20 @@ public class MagazineManager
         }
         
         return resultList;
+    }
+    
+    public void PrintMagazines()
+    {
+        HashMap<String, Magazine> printList = this.GetAllPublicationList();
+        
+        for(Map.Entry pair: printList.entrySet())
+        {
+            String currentKey = (String) pair.getKey();
+            Magazine currentMagazine = (Magazine) pair.getValue();
+            System.out.println("Record Key:" + currentKey);
+            System.out.println("Name: " + currentMagazine.GetMagazineName());
+            System.out.println("Cost:" + currentMagazine.GetMagazineCost());
+        }
     }
     
     

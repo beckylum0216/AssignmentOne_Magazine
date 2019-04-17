@@ -18,10 +18,12 @@ public class Subscription {
     private Magazine subbedPublication;
     private boolean subscriptionActive;
     
-    Subscription(String inputEmail, Datum inputDate)
+    Subscription(String inputEmail, Datum inputDate, Magazine inputPublication, boolean inputStatus)
     {
         this.subscriptionEmail = inputEmail;
         this.subscriptionDate = inputDate;
+        this.subbedPublication = inputPublication;
+        this.subscriptionActive = inputStatus;
        
     }
     
@@ -69,4 +71,6 @@ public class Subscription {
     {
         return this.subscriptionActive;
     }
+    
+    
 }

@@ -192,5 +192,10 @@ public class Datum {
         
         return theFlag;
     }
+    
+    @Override
+    public String toString() { 
+        return this.day+"/"+this.month+"/"+this.year; 
+    } 
            
 }

@@ -9,10 +9,16 @@ package assignmentone_magazine;
  *
  * @author becky
  */
-public abstract class Magazine 
+public class Magazine 
 {
     private String magazineName;
     private float magazineCost;
+    
+    public Magazine(String inputName, float inputCost)
+    {
+        this.magazineName = inputName;
+        this.magazineCost = inputCost;
+    }
     
     public void SetMagazineName(String inputName)
     {

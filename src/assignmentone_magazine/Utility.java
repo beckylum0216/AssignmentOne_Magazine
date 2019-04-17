@@ -32,6 +32,7 @@ public class Utility {
             while ((line = br.readLine()) != null) 
             {
                 String[] values = line.split(",");
+                System.out.println("Values: " + values.length);
                 customerRecords.add(Arrays.asList(values));
                 
             }

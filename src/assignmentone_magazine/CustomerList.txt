@@ -1,2 +1,3 @@
-123456,"John","Doe","jd@gmail.com",456,"Credit Card",""
-456789,"Jane","Fonda","jf@gmail.com",567,"Patron",123456
+John,Doe,jd@gmail.com,CreditCard,
+Jane,Fonda,jf@gmail.com,Patron,jd@gmail.com
+John,McEnroe,jm@espn.com,DirectDebit,

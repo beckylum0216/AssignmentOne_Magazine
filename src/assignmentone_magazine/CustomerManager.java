@@ -35,7 +35,15 @@ public class CustomerManager {
     */
     public void AddPatron(Customer newCustomer)
     {
-        patron.put(newCustomer.GetEmailAddress(), newCustomer);
+        if(!patron.containsKey(newCustomer.GetEmailAddress()))
+        {
+            patron.put(newCustomer.GetEmailAddress(), newCustomer);
+        }
+        else
+        {
+            throw new IllegalArgumentException("Customer already exists!");
+        }
+        
     }
     
     public HashMap<String, Customer> GetPatron()
@@ -56,15 +64,22 @@ public class CustomerManager {
         // checks if customer exists 
         if(patron.containsKey(associateCustomer.GetPatronEmail()))
         {
+            if(associate.containsKey(associateCustomer.GetPatronEmail()))
+            {
+                associate.get(associateCustomer.GetPatronEmail()).put(associateCustomer.GetEmailAddress(),associateCustomer);
+            }
+            else
+            {
+                HashMap <String, Associate> tempList = new HashMap<>();
+                tempList.put(associateCustomer.GetEmailAddress(),associateCustomer);
+                associate.put(associateCustomer.GetPatronEmail(), tempList);
+            }
             
-            associate.get(associateCustomer.GetPatronEmail()).put(associateCustomer.GetEmailAddress(),associateCustomer);
         }
         else
         {
+            throw new IllegalArgumentException("Patron must exist before adding associate");
             
-            HashMap <String, Associate> tempList = new HashMap<>();
-            tempList.put(associateCustomer.GetEmailAddress(),associateCustomer);
-            associate.put(associateCustomer.GetPatronEmail(), tempList);
         }
     }
     
@@ -132,6 +147,20 @@ public class CustomerManager {
         }
         
         return resultList;
+    }
+    
+    public void PrintCustomers()
+    {
+        HashMap<String, Customer> printList = CustomerList();
+        
+        for(Map.Entry pair: printList.entrySet())
+        {
+            String currentKey = (String) pair.getKey();
+            Customer currentCustomer = (Customer) pair.getValue();
+            System.out.println("Record Key:" + currentKey);
+            System.out.println("Name: " + currentCustomer.GetFirstName() + " " + currentCustomer.GetLastName());
+            System.out.println("Payment Method:" + currentCustomer.GetPaymentMethod());
+        }
     }
     
 }

@@ -128,9 +128,8 @@ public class Invoice
         for(Map.Entry pair: this.subscriptions.entrySet())
         {
             Subscription tempSubscription = (Subscription) pair.getValue();
-            System.out.println(
-                " Magazine: " + tempSubscription.GetSubbedPublication().GetMagazineName()
-                + " Cost: " + tempSubscription.GetSubbedPublication().GetMagazineCost());
+            System.out.println("    Magazine: " + tempSubscription.GetSubbedPublication().GetMagazineName() +
+                               "    "+ tempSubscription.GetSubbedPublication().GetMagazineCost());
             totalInvoice += tempSubscription.GetSubbedPublication().GetMagazineCost();
         }
         

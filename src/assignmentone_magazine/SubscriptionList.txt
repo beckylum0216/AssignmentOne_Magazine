@@ -1,1 +1,4 @@
-
+jd@gmail.com,24/04/2016,Australian Financial Weekly,true
+jf@gmail.com,15/06/2017,Financial Supplement,true
+jf@gmail.com,15/06/2017,Financial Supplement,true
+jm@espn.com,17/08/1988,Australian Financial Weekly, true
