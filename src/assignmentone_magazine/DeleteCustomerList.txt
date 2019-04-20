@@ -1,5 +1,4 @@
 John,Doe,jd@gmail.com,CreditCard,
 Jane,Fonda,jf@gmail.com,Patron,jd@gmail.com
-John,McEnroe,jm@espn.com,DirectDebit,
 Serena,Williams,sw@espn.com,Patron,jm@espn.com
-Tiger,Woods,tw@espn.com,DirectDebit,
+John,McEnroe,jm@espn.com,DirectDebit,

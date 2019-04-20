@@ -47,26 +47,24 @@ public class AssignmentOne_Magazine {
                         UploadSubscription();
                         break;
                     case 5:
-                        
+                        PrintCorrespondence();
                         break;
                     case 6:
-                        GenerateInvoices();
-                        break;
-                    case 7:
                         PrintInvoices();
                         break;
-                    case 8:
-                        
+                    case 7:
+                        RemoveCustomers();
                         break;
-                    case 9:
+                    case 8:
                         PrintCustomerList();
                         break;
-                    case 10:
+                    case 9:
                         PrintMagazineList();
                         break;
-                    case 11:
+                    case 10:
                         PrintSubscriptionList();
                         break;
+                    
                      
                     default:
                         System.out.println("Please enter a valid choice");
@@ -93,12 +91,11 @@ public class AssignmentOne_Magazine {
         System.out.println("3: Press 3 to add magazine data.");
         System.out.println("4: Press 4 to add subscription data");
         System.out.println("5: Press 5 to print subscription emails");
-        System.out.println("6: Press 6 to generate invoices");
-        System.out.println("7: Press 7 to print monthly invoice emails");
-        System.out.println("8: Press 8 to remove customer");
-        System.out.println("9: Press 9 to print customer list.");
-        System.out.println("10: Press 10 to print magazine list.");
-        System.out.println("11: Press 11 to print subscription list.");
+        System.out.println("6: Press 6 to print monthly invoice emails");
+        System.out.println("7: Press 7 to remove customer");
+        System.out.println("8: Press 8 to print customer list.");
+        System.out.println("9: Press 9 to print magazine list.");
+        System.out.println("10: Press 10 to print subscription list.");
         
     }
     
@@ -219,14 +216,49 @@ public class AssignmentOne_Magazine {
         magazineService.PrintSubscription();
     }
     
-    public static void GenerateInvoices()
-    {
-        magazineService.InvoiceCustomers();
-    }
-    
     public static void PrintInvoices()
     {
+        magazineService.InvoiceCustomers();
         magazineService.PrintStatements();
+    }
+    
+    public static void PrintCorrespondence()
+    {
+        magazineService.EmailCustomers();
+        magazineService.PrintEmails();
+    }
+    
+    public static void RemoveCustomers()
+    {
+        Utility ut = new Utility();
+        String filePath = "src/assignmentOne_magazine/DeleteCustomerList.txt";
+        List<List<String>> tempList = ut.CSVFileReader(filePath);
+        
+        for(int ii = 0; ii < tempList.size(); ii += 1)
+        {
+            
+            if(tempList.get(ii).size() == 4)
+            {
+                Customer tempCustomer = new Customer(tempList.get(ii).get(0), 
+                                                    tempList.get(ii).get(1),
+                                                    tempList.get(ii).get(2),
+                                                    tempList.get(ii).get(3));
+                
+                magazineService.GetCustomerList().RemovePatron(tempCustomer);
+            }
+            else
+            {
+                System.out.println("tempList element:" + tempList.get(ii).get(4));
+                Associate tempAssociate = new Associate(tempList.get(ii).get(0), 
+                                                    tempList.get(ii).get(1),
+                                                    tempList.get(ii).get(2),
+                                                    tempList.get(ii).get(3),
+                                                    tempList.get(ii).get(4));
+                
+                magazineService.GetCustomerList().RemoveAssociate(tempAssociate);
+            }
+            
+        }
     }
     
     /**
@@ -263,7 +295,6 @@ public class AssignmentOne_Magazine {
         
         return theFlag;
     }
-    
     
     
 }

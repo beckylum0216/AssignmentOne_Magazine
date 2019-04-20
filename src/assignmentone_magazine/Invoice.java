@@ -28,6 +28,7 @@ public class Invoice
     private String invoiceID;
     private String patronEmail;
     private Customer customer;
+    
     private HashMap <String, Subscription> subscriptions;
     private Datum invoiceDate;
     
@@ -86,6 +87,16 @@ public class Invoice
         return this.customer;
     }
     
+    public void SetSubscriptions(HashMap<String, Subscription> inputSubscription)
+    {
+        this.subscriptions = inputSubscription;
+    }
+    
+    public HashMap<String, Subscription> GetSubscriptions()
+    {
+        return this.subscriptions;
+    }
+    
     /**
     * <p> This is the mutator for the invoice date. </p>
     * @param inputDate the invoice date to be stored
@@ -120,21 +131,28 @@ public class Invoice
     
     public void PrintInvoice()
     {
-        float totalInvoice = 0.00f;
-        System.out.println("Invoice ID: " + this.invoiceID + " Date: " + this.invoiceDate);
-        
-        System.out.println("Name:" + this.customer.GetFirstName() + " " + this.customer.GetLastName());
+       
         // itemise account
         for(Map.Entry pair: this.subscriptions.entrySet())
         {
             Subscription tempSubscription = (Subscription) pair.getValue();
-            System.out.println("    Magazine: " + tempSubscription.GetSubbedPublication().GetMagazineName() +
+            System.out.println("Invoice ID: " + this.invoiceID + " Date: " + this.invoiceDate.toString()+"    Magazine: " + tempSubscription.GetSubbedPublication().GetMagazineName() +
                                "    "+ tempSubscription.GetSubbedPublication().GetMagazineCost());
-            totalInvoice += tempSubscription.GetSubbedPublication().GetMagazineCost();
+            
+        }
+    }
+    
+    public float GetTotalInvoice()
+    {
+        float totalInvoice = 0.00f;
+        for(Map.Entry pair: this.subscriptions.entrySet())
+        {
+            Subscription tempSubscription = (Subscription) pair.getValue();
+            totalInvoice +=  tempSubscription.GetSubbedPublication().GetMagazineCost();
+
         }
         
-        System.out.println("Total Invoice: " + totalInvoice);
-        
+        return totalInvoice;
     }
     
 }

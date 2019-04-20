@@ -118,7 +118,22 @@ public class CustomerManager {
     */
     public void RemoveAssociate(Associate targetAssociate)
     {
-        associate.get(targetAssociate.GetPatronEmail()).remove(targetAssociate.GetEmailAddress());
+        if(associate.containsKey(targetAssociate.GetPatronEmail()))
+        {
+            if(associate.get(targetAssociate.GetPatronEmail()).containsKey(targetAssociate.GetEmailAddress()))
+            {
+                associate.get(targetAssociate.GetPatronEmail()).remove(targetAssociate.GetEmailAddress());
+            }
+            else
+            {
+                throw new IllegalArgumentException("Associate does not exist");
+            }
+        }
+        else
+        {
+            System.out.println("Patron does not exist!");
+        }
+        
     }
     
     public HashMap<String, HashMap<String, Associate>> GetAssociates()

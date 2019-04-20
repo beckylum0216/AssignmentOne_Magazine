@@ -195,7 +195,7 @@ public class Datum {
     
     @Override
     public String toString() { 
-        return this.day+"/"+this.month+"/"+this.year; 
+        return this.year+"-"+this.month+"-"+this.day; 
     } 
            
 }
