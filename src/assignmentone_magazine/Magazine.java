@@ -9,27 +9,65 @@ package assignmentone_magazine;
  *
  * @author becky
  */
+
+/**
+* <p> Parent passive data structure for Magazines</p>
+* @param 
+* @return void
+* @see 
+* @since 1.0
+*/
 public class Magazine 
 {
     private String magazineName;
     private float magazineCost;
     
+    /**
+    * <p> Constructor for the magazine class</p>
+    * @param inputName the name of the magazine
+    * @param inputCost the cost of the magazine
+    * @return void
+    * @see 
+    * @since 1.0
+    */
     public Magazine(String inputName, float inputCost)
     {
         this.magazineName = inputName;
         this.magazineCost = inputCost;
     }
     
+    /**
+    * <p> This is the mutator for the magazine name. The name is assumed to be unique</p>
+    * @param inputName unique magazine name
+    * @return void
+    * @see 
+    * @since 1.0
+    */
     public void SetMagazineName(String inputName)
     {
         this.magazineName = inputName;
     }
     
+    /**
+    * <p> This is the accessor for the magazine name. The name is assumed to be unique</p>
+    * @param void
+    * @return magazineName retrieved unique magazine name
+    * @see 
+    * @since 1.0
+    */
     public String GetMagazineName()
     {
         return this.magazineName;
     }
     
+    
+    /**
+    * <p> This is the mutator for the magazine cost. </p>
+    * @param inputCost cost of the magazine. cannot be less than zero
+    * @return void
+    * @see 
+    * @since 1.0
+    */
     public void SetMagazineCost(float inputCost)
     {
         if(inputCost <= 0)
@@ -43,6 +81,13 @@ public class Magazine
         
     }
     
+    /**
+    * <p> This is the accessor for the magazine cost.</p>
+    * @param void
+    * @return magazineCost cannot be zero
+    * @see 
+    * @since 1.0
+    */
     public float GetMagazineCost()
     {
         return this.magazineCost;

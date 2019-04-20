@@ -18,8 +18,23 @@ import java.util.Arrays;
  *
  * @author becky
  */
+
+/**
+* <p> Utility class for storing useful functions not directly associated with the primary function</p>
+* @param 
+* @return void
+* @see 
+* @since 1.0
+*/
 public class Utility {
     
+    /**
+    * <p> Utility function retrieving records from files</p>
+    * @param filePath the file path to get data from a csv file, must not have spaces
+    * @return customerRecords record list
+    * @see 
+    * @since 1.0
+    */
     public List<List<String>> CSVFileReader(String filePath)
     {
         List<List<String>> customerRecords = new ArrayList<>();

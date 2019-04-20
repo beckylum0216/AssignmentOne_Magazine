@@ -27,19 +27,31 @@ import java.util.logging.Logger;
  *
  * @author becky
  */
+
+/**
+* <p> This is the service manager. Contains the business logic of the application</p>
+* @param 
+* @return void
+* @see 
+* @since 1.0
+*/
 public class ServiceManager {
     
     private MagazineManager magazineList;
-    
     private CustomerManager customerList;
     // email, magazine name, subscription
     private HashMap<String, HashMap<String, Subscription>> subscriptionList;
     //customer--> invoicekey-->invoice
     private HashMap<String, HashMap<String, Invoice>> billedInvoice;
-    
     private HashMap<String, HashMap<String, Email>> generatedEmails;
     
-    
+    /**
+    * <p> This is the service manager constructor</p>
+    * @param 
+    * @return void
+    * @see 
+    * @since 1.0
+    */
     public ServiceManager()
     {
         this.billedInvoice = new HashMap<>();
@@ -49,16 +61,37 @@ public class ServiceManager {
         this.magazineList = new MagazineManager();
     }
     
+    /**
+    * <p> This is the accessor for the customer list</p>
+    * @param 
+    * @return magazines magazine lists
+    * @see 
+    * @since 1.0
+    */
     public CustomerManager GetCustomerList()
     {
         return customerList;
     }
     
+    /**
+    * <p> This is the accessor for the magazine list</p>
+    * @param 
+    * @return magazines magazine lists
+    * @see 
+    * @since 1.0
+    */
     public MagazineManager GetMagazineList()
     {
         return magazineList;
     }
     
+    /**
+    * <p> This function contains the logic for the invoicing customers</p>
+    * @param 
+    * @return 
+    * @see 
+    * @since 1.0
+    */
     public void InvoiceCustomers()
     {
         LocalDate currentDate = LocalDate.now();
@@ -168,7 +201,13 @@ public class ServiceManager {
         }
     }
     
-    
+    /**
+    * <p> This function gets all the monday invoice dates related to each subscription</p>
+    * @param currentDate current system date
+    * @return currentSubs the subscriptions related to the customers
+    * @see 
+    * @since 1.0
+    */
     private ArrayList<LocalDate> GetInvoiceDates(LocalDate currentDate, Subscription currentSubs)
     {
         ArrayList<LocalDate> invoiceDates = new ArrayList<>();
@@ -194,11 +233,25 @@ public class ServiceManager {
         return invoiceDates;
     }
     
+    /**
+    * <p> This is the accessor to billed invoices </p>
+    * @param 
+    * @return billedInvoice billed invoice list
+    * @see 
+    * @since 1.0
+    */
     public HashMap<String, HashMap<String,Invoice>> GetBilledInvoices()
     {
         return this.billedInvoice;
     }
     
+    /**
+    * <p> This function collates and print all the invoices in a statement </p>
+    * @param 
+    * @return void
+    * @see 
+    * @since 1.0
+    */
     public void PrintStatements()
     {
         LocalDateTime currentDate = LocalDateTime.now();
@@ -237,7 +290,14 @@ public class ServiceManager {
         
     }
     
-    // Only creates a subscription with an empty list of magazines. Does not add magazines to the subscription.
+   
+    /**
+    * <p> This is the mutator to the subscription list  </p>
+    * @param newSubscription subscription record 
+    * @return void
+    * @see 
+    * @since 1.0
+    */
     public void AddSubscription(Subscription newSubscription )
     {
         // testing if patron exists
@@ -279,6 +339,13 @@ public class ServiceManager {
         }
     }
     
+    /**
+    * <p> This is the accessor to subscription list </p>
+    * @param 
+    * @return subscriptionList the list of subscription 
+    * @see 
+    * @since 1.0
+    */
     public HashMap<String, HashMap<String,Subscription>> GetSubscriptions()
     {
         return subscriptionList;
@@ -304,7 +371,13 @@ public class ServiceManager {
     }
     
     
-    
+    /**
+    * <p> This is the accessor to the subscription List </p>
+    * @param 
+    * @return void
+    * @see 
+    * @since 1.0
+    */
     public void PrintSubscription()
     {
         for(Map.Entry pair : this.subscriptionList.entrySet())
@@ -325,6 +398,13 @@ public class ServiceManager {
         }
     }
     
+    /**
+    * <p> This function contains the logic for the emailing customers</p>
+    * @param 
+    * @return 
+    * @see 
+    * @since 1.0
+    */
     public void EmailCustomers()
     {
         LocalDate currentDate = LocalDate.now();
@@ -436,6 +516,13 @@ public class ServiceManager {
         }
     }
     
+    /**
+    * <p> This function collates and print all the emails in the subscription </p>
+    * @param 
+    * @return void
+    * @see 
+    * @since 1.0
+    */
     public void PrintEmails()
     {
         System.out.println("Running print emails");
