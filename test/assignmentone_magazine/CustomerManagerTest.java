@@ -48,7 +48,6 @@ public class CustomerManagerTest {
         Customer newCustomer = new Customer("baldy", "Saitama", "bs@wanpan.co.jp", "credit Card");
         CustomerManager instance = new CustomerManager();
         instance.AddPatron(newCustomer);
-        // TODO review the generated test code and remove the default call to fail.
         Assert.assertEquals("baldy", instance.GetPatron().get("bs@wanpan.co.jp").GetFirstName());
     }
 

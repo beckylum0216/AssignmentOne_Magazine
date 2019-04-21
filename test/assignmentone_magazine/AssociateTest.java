@@ -47,7 +47,6 @@ public class AssociateTest {
         String inputEmail = "blah@abc.net.au";
         Associate instance = new Associate();
         instance.SetPatronEmail(inputEmail);
-        // TODO review the generated test code and remove the default call to fail.
         Assert.assertEquals("blah@abc.net.au", instance.GetPatronEmail());
     }
 
@@ -61,9 +60,8 @@ public class AssociateTest {
         Associate instance = new Associate();
         instance.SetPatronEmail(inputEmail);
         String result = instance.GetPatronEmail();
-        assertEquals("blach@abc.net.au", result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals("blah@abc.net.au", result);
+       
     }
     
 }

@@ -43,11 +43,10 @@ public class CustomerTest {
     @Test
     public void testSetFirstName() {
         System.out.println("SetFirstName");
-        String inputFirstName = "";
-        Customer instance = null;
+        String inputFirstName = "baldy";
+        Customer instance = new Customer();
         instance.SetFirstName(inputFirstName);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -56,12 +55,12 @@ public class CustomerTest {
     @Test
     public void testGetFirstName() {
         System.out.println("GetFirstName");
-        Customer instance = null;
-        String expResult = "";
+        Customer instance = new Customer();
+        String expResult = "baldy";
+        instance.SetFirstName(expResult);
         String result = instance.GetFirstName();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
