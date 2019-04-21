@@ -5,12 +5,31 @@
         <group>
             <file>file:/D:/Murdoch/ICT373/AssignmentOne_Magazine/src/assignmentone_magazine/Supplement.java</file>
             <file>file:/D:/Murdoch/ICT373/AssignmentOne_Magazine/src/assignmentone_magazine/Magazine.java</file>
-            <file>file:/D:/Murdoch/ICT373/AssignmentOne_Magazine/src/assignmentone_magazine/Customer.java</file>
-            <file>file:/D:/Murdoch/ICT373/AssignmentOne_Magazine/src/assignmentone_magazine/Associate.java</file>
-            <file>file:/D:/Murdoch/ICT373/AssignmentOne_Magazine/src/assignmentone_magazine/Invoice.java</file>
-            <file>file:/D:/Murdoch/ICT373/AssignmentOne_Magazine/src/assignmentone_magazine/Subscriber.java</file>
-            <file>file:/D:/Murdoch/ICT373/AssignmentOne_Magazine/src/assignmentone_magazine/AssignmentOne_Magazine.java</file>
+            <file>file:/D:/Murdoch/ICT373/AssignmentOne_Magazine/test/assignmentone_magazine/ServiceManagerTest.java</file>
+            <file>file:/D:/Murdoch/ICT373/AssignmentOne_Magazine/src/assignmentone_magazine/Datum.java</file>
             <file>file:/D:/Murdoch/ICT373/AssignmentOne_Magazine/src/assignmentone_magazine/Subscription.java</file>
+            <file>file:/D:/Murdoch/ICT373/AssignmentOne_Magazine/nbproject/build-impl.xml</file>
+            <file>file:/D:/Murdoch/ICT373/AssignmentOne_Magazine/src/assignmentone_magazine/Utility.java</file>
+            <file>file:/D:/Murdoch/ICT373/AssignmentOne_Magazine/test/assignmentone_magazine/MagazineManagerTest.java</file>
+            <file>file:/D:/Murdoch/ICT373/AssignmentOne_Magazine/src/assignmentone_magazine/SubscriptionList.txt</file>
+            <file>file:/D:/Murdoch/ICT373/AssignmentOne_Magazine/src/assignmentone_magazine/Invoice.java</file>
+            <file>file:/D:/Murdoch/ICT373/AssignmentOne_Magazine/src/assignmentone_magazine/CustomerManager.java</file>
+            <file>file:/D:/Murdoch/ICT373/AssignmentOne_Magazine/src/assignmentone_magazine/MagazineManager.java</file>
+            <file>file:/D:/Murdoch/ICT373/AssignmentOne_Magazine/test/assignmentone_magazine/CustomerTest.java</file>
+            <file>file:/D:/Murdoch/ICT373/AssignmentOne_Magazine/test/assignmentone_magazine/SubscriptionTest.java</file>
+            <file>file:/D:/Murdoch/ICT373/AssignmentOne_Magazine/src/assignmentone_magazine/Email.java</file>
+            <file>file:/D:/Murdoch/ICT373/AssignmentOne_Magazine/src/assignmentone_magazine/Customer.java</file>
+            <file>file:/D:/Murdoch/ICT373/AssignmentOne_Magazine/test/AssignmentOne/Test/MagazineService/Test000_CustomerManager.java</file>
+            <file>file:/D:/Murdoch/ICT373/AssignmentOne_Magazine/test/assignmentone_magazine/CustomerManagerTest.java</file>
+            <file>file:/D:/Murdoch/ICT373/AssignmentOne_Magazine/src/assignmentone_magazine/CustomerList.txt</file>
+            <file>file:/D:/Murdoch/ICT373/AssignmentOne_Magazine/test/assignmentone_magazine/AssignmentOne_MagazineTest.java</file>
+            <file>file:/D:/Murdoch/ICT373/AssignmentOne_Magazine/test/assignmentone_magazine/AssociateTest.java</file>
+            <file>file:/D:/Murdoch/ICT373/AssignmentOne_Magazine/src/assignmentone_magazine/ServiceManager.java</file>
+            <file>file:/D:/Murdoch/ICT373/AssignmentOne_Magazine/src/assignmentone_magazine/Associate.java</file>
+            <file>file:/D:/Murdoch/ICT373/AssignmentOne_Magazine/src/assignmentone_magazine/DeleteCustomerList.txt</file>
+            <file>file:/D:/Murdoch/ICT373/AssignmentOne_Magazine/src/assignmentone_magazine/MagazineList.txt</file>
+            <file>file:/D:/Murdoch/ICT373/AssignmentOne_Magazine/test/assignmentone_magazine/Assignmentone_magazineSuite.java</file>
+            <file>file:/D:/Murdoch/ICT373/AssignmentOne_Magazine/src/assignmentone_magazine/AssignmentOne_Magazine.java</file>
         </group>
     </open-files>
 </project-private>

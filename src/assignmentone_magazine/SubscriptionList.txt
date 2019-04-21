@@ -3,3 +3,4 @@ jf@gmail.com,15/06/2017,Financial Supplement,true
 jf@gmail.com,15/06/2017,Financial Supplement,true
 jm@espn.com,17/08/1988,Australian Financial Weekly,true
 tw@espn.com,23/11/2001,Putt Putt Weekly,true
+sw@espn.com,31/12/2002,Putt Putt Weekly,true

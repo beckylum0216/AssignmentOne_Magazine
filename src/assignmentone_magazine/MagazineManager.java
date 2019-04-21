@@ -14,34 +14,51 @@ import java.util.Map;
  *
  * @author becky
  */
+
+/**
+* <p> This is the customer manager</p>
+* @since 1.0
+*/
 public class MagazineManager 
 {
     
     HashMap <String, Magazine> magazines;
     HashMap <String, HashMap<String,Supplement>> supplements;
     
+    /**
+    * <p> This is the magazine manager constructor</p>
+    * @since 1.0
+    */
     public MagazineManager()
     {
         this.magazines = new HashMap <>();
         this.supplements = new HashMap <>();
     }
     
+    /**
+    * <p> This is the accessor for the magazine list</p>
+    * @return magazines list of magazines
+    * @since 1.0
+    */
     public HashMap<String, Magazine> GetMagazines()
     {
         return this.magazines;
     }
     
+    /**
+    * <p> This is the accessor for the supplement list</p>
+    * @return supplements supplement lists
+    * @since 1.0
+    */
     public HashMap <String, HashMap<String, Supplement>> GetSupplement()
     {
         return this.supplements;
     }
     
     /**
-    * <p> This is the patron manager
+    * <p> This is the magazine manager
     * </p>
     * @param newMagazine the new magazine to be added
-    * @return void
-    * @see 
     * @since 1.0
     */
     public void AddMagazine(Magazine newMagazine)
@@ -58,11 +75,9 @@ public class MagazineManager
     }
     
     /**
-    * <p> This is the associate manager
+    * <p> This is the supplement manager
     * </p>
     * @param supplementMagazine the new associate to be added
-    * @return void
-    * @see 
     * @since 1.0
     */
     public void AddSupplement(Supplement supplementMagazine)
@@ -89,11 +104,9 @@ public class MagazineManager
     }
     
      /**
-    * <p> This is the associate manager
+    * <p> This removes magazines
     * </p>
     * @param targetMagazine the magazine to be removed
-    * @return void
-    * @see 
     * @since 1.0
     */
     public void RemoveMagazine(Magazine targetMagazine)
@@ -112,11 +125,9 @@ public class MagazineManager
     }
     
     /**
-    * <p> This is the associate manager
+    * <p> This removes supplements 
     * </p>
-    * @param targetSupplement the new associate to be removed
-    * @return void
-    * @see 
+    * @param targetSupplement the supplement to be removed
     * @since 1.0
     */
     public void RemoveOneSupplement(Supplement targetSupplement)
@@ -125,10 +136,7 @@ public class MagazineManager
     }
     
     /**
-    * <p> This is to get a derived list of all customers</p>
-    * @param 
-    * @return void
-    * @see 
+    * <p> This is to get a derived list of all customers</p> 
     * @since 1.0
     */
     public HashMap<String, Magazine> GetAllPublicationList()
@@ -145,6 +153,10 @@ public class MagazineManager
         return resultList;
     }
     
+    /**
+    * <p> This is a utility function to print the derived list of all magazines</p>
+    * @since 1.0
+    */
     public void PrintMagazines()
     {
         HashMap<String, Magazine> printList = this.GetAllPublicationList();

@@ -16,10 +16,7 @@ import java.util.Map;
 
 /**
     * <p>To get the monthly charge of each magazine or supplement related to 
-    * each customer and to format the output</p>
-    * @param void
-    * @return void
-    * @see 
+    * each customer and to format the output</p> 
     * @since 1.0
     */
 
@@ -32,6 +29,15 @@ public class Invoice
     private HashMap <String, Subscription> subscriptions;
     private Datum invoiceDate;
     
+    /**
+    * <p> Invoice constructor</p>
+    * @param inputID unique email id
+    * @param inputEmail customer email
+    * @param inputCustomer customer record
+    * @param inputSubscriptions subscription record
+    * @param inputDate email date 
+    * @since 1.0
+    */
     public Invoice(String inputID, String inputEmail, Customer inputCustomer, HashMap<String, Subscription> inputSubscriptions, Datum inputDate)
     {
         this.invoiceID = inputID;
@@ -41,11 +47,21 @@ public class Invoice
         this.invoiceDate = inputDate;
     }
     
+    /**
+    * <p> This is the mutator for the invoice id. unique invoice identifier</p>
+    * @param inputID unique email id
+    * @since 1.0
+    */
     public void SetInvoiceID(String inputID)
     {
         this.invoiceID = inputID;
     }
     
+    /**
+    * <p> This is the accessor for the invoice id. Allows the email to be retrieved</p>
+    * @return invoiceID the unique invoice identifier
+    * @since 1.0
+    */
     public String GetInvoiceID()
     {
         return this.invoiceID;
@@ -65,8 +81,6 @@ public class Invoice
     * <p>This is the setter for the invoice. Allows the customer to be 
     * associated with the invoice</p>
     * @param inputCustomer the email to be stored
-    * @return void
-    * @see 
     * @since 1.0
     */
     public void SetCustomer(Customer inputCustomer)
@@ -77,9 +91,7 @@ public class Invoice
     /**
     * <p> This is the getter for the invoice. Allows the customer to be 
     * retrieved</p>
-    * @param inputCustomer the email to be stored
     * @return void
-    * @see 
     * @since 1.0
     */
     public Customer GetCustomer()
@@ -100,8 +112,6 @@ public class Invoice
     /**
     * <p> This is the mutator for the invoice date. </p>
     * @param inputDate the invoice date to be stored
-    * @return void
-    * @see 
     * @since 1.0
     */
     public void SetInvoiceDate(Datum inputDate)
@@ -111,9 +121,7 @@ public class Invoice
     
     /**
     * <p> This is the accessor for the invoice date. </p>
-    * @param void 
     * @return invoiceDate
-    * @see 
     * @since 1.0
     */
     public Datum GetInvoiceDate()
@@ -122,13 +130,9 @@ public class Invoice
     }
     
     /**
-    * <p> This is the accessor for the invoice date. </p>
-    * @param void 
-    * @return invoiceDate
-    * @see 
+    * <p> This is a utility function to print one invoice. </p>
     * @since 1.0
     */
-    
     public void PrintInvoice()
     {
        

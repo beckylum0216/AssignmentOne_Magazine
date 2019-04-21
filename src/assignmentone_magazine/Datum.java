@@ -11,12 +11,12 @@ import java.time.temporal.TemporalAccessor;
 import java.util.Date;
 
 /**
- * @title Student Record System
- * @filename DOB.java
- * @purpose This class is the object class that contains the date of birth
+ * <p>Student Record System
+ * DOB.java
+ * This class is the object class that contains the date of birth
  * object. Contains all the associated validation methods 
- * @assumptions the inputs will only take in strings and doubles and do error 
- * checking on the input
+ * the inputs will only take in strings and doubles and do error 
+ * checking on the input</p>
  * @author Rebecca Lim
  */
 public class Datum {
@@ -37,9 +37,9 @@ public class Datum {
     /**
      * <p>Constructor that allows the input of the Date.</p>
      * 
-     * @param inputDay
-     * @param inputMonth
-     * @param inputYear
+     * @param inputDay day of date
+     * @param inputMonth month of date
+     * @param inputYear year of date
      */
     public Datum(int inputDay, int inputMonth, int inputYear)
     {
@@ -58,7 +58,7 @@ public class Datum {
 
     /**
      * <p> The mutator for the day field. </p>
-     * @param day
+     * @param day inputted date
      */
     public void setDay(int day) {
         this.day = day;
@@ -98,7 +98,7 @@ public class Datum {
     
     /**
      * <p>This method validates if the dates are the same.</p>
-     * @param inputDate
+     * @param inputDate date to compare
      * @return theFlag boolean 
      */
     public boolean isEqual(Datum inputDate)
@@ -193,6 +193,10 @@ public class Datum {
         return theFlag;
     }
     
+    /**
+     * <p>This is an override method to print the date </p>
+     * @return string object of the date
+     */
     @Override
     public String toString() { 
         return this.year+"-"+this.month+"-"+this.day; 

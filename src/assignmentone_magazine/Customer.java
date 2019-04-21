@@ -11,6 +11,11 @@ import java.util.ArrayList;
  *
  * @author becky
  */
+
+/**
+* <p> Parent passive data structure for customer</p>
+* @since 1.0
+*/
 public class Customer {
     
     
@@ -20,6 +25,20 @@ public class Customer {
     //public enum PaymentType{CreditCard, DirectDebit, Patron};
     private String paymentMethod;
     
+    /**
+    * <p> Default Customer constructor</p>
+    * @since 1.0
+    */
+    public Customer(){}
+    
+    /**
+    * <p> Parameterised Customer constructor</p>
+    * @param inputFirstName customer first name 
+    * @param inputLastName customer last name
+    * @param inputEmail customer email
+    * @param inputPayment customer payment method
+    * @since 1.0
+    */
     public Customer(String inputFirstName, String inputLastName, String inputEmail, String inputPayment)
     {
         this.firstName = inputFirstName;
@@ -32,8 +51,6 @@ public class Customer {
     /**
     * <p> This is the setter for the first name. Allows the first name to be stored</p>
     * @param inputFirstName the first name to be stored
-    * @return void
-    * @see 
     * @since 1.0
     */
     public void SetFirstName(String inputFirstName)
@@ -43,9 +60,7 @@ public class Customer {
     
     /**
     * <p> This is the getter for the first name.</p>
-    * @param void
     * @return first name
-    * @see 
     * @since 1.0
     */
     public String GetFirstName()
@@ -56,8 +71,6 @@ public class Customer {
      /**
     * <p> This is the setter for the first name. Allows the last name to be stored</p>
     * @param inputLastName the last name to be stored
-    * @return void
-    * @see 
     * @since 1.0
     */
     public void SetLastName(String inputLastName)
@@ -68,9 +81,7 @@ public class Customer {
     
     /**
     * <p> This is the setter for the first name. Allows the first name to be stored</p>
-    * @param void
     * @return last name of the customer
-    * @see 
     * @since 1.0
     */
     public String GetLastName()
@@ -81,8 +92,6 @@ public class Customer {
     /**
     * <p> This is the setter for the email. Allows the email to be stored</p>
     * @param inputEmail the email to be stored
-    * @return void
-    * @see 
     * @since 1.0
     */
     public void SetEmailAddress(String inputEmail)
@@ -92,9 +101,7 @@ public class Customer {
     
     /**
     * <p> This is the getter for the email. Allows the email to be retrieved</p>
-    * @param void
     * @return emailAddress retrieves the email address
-    * @see 
     * @since 1.0
     */
     public String GetEmailAddress()
@@ -108,8 +115,6 @@ public class Customer {
     /**
     * <p> This is the mutator for the payment method. </p>
     * @param inputType the type of payment method enum of credit card or direct debit
-    * @return void
-    * @see 
     * @since 1.0
     */
     public void SetPaymentMethod(String inputType)
@@ -120,9 +125,7 @@ public class Customer {
     
     /**
     * <p> This is the accessor for the payment method. </p>
-    * @param void
-    * @return paymentMethod the payment type of enum payment type
-    * @see 
+    * @return paymentMethod the payment type of enum payment type 
     * @since 1.0
     */
     public String GetPaymentMethod()

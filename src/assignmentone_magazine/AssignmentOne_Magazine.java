@@ -262,8 +262,8 @@ public class AssignmentOne_Magazine {
     }
     
     /**
-     * This method allows the user to exit the program.
-     * @return
+     * <p>This method allows the user to exit the program.</p>
+     * @return theFlag boolean of state of program on exit
      */
     public static boolean exitProg()
     {

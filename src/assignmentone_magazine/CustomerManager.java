@@ -15,10 +15,19 @@ import java.util.Map;
  *
  * @author becky
  */
+
+/**
+* <p> This is the customer manager</p>
+* @since 1.0
+*/
 public class CustomerManager {
     HashMap <String, Customer> patron;
     HashMap <String, HashMap<String, Associate>> associate;
     
+    /**
+    * <p> This is the customer manager constructor</p>
+    * @since 1.0
+    */
     public CustomerManager()
     {
         this.patron = new HashMap<>();
@@ -26,11 +35,8 @@ public class CustomerManager {
     }
     
     /**
-    * <p> This is the patron manager
-    * </p>
+    * <p> This method add patrons</p>
     * @param newCustomer the new customer to be added
-    * @return void
-    * @see 
     * @since 1.0
     */
     public void AddPatron(Customer newCustomer)
@@ -46,17 +52,19 @@ public class CustomerManager {
         
     }
     
+    /**
+    * <p> Accessor for patrons</p>
+    * @return patron a hashmap of patrons
+    * @since 1.0
+    */
     public HashMap<String, Customer> GetPatron()
     {
         return this.patron;
     }
     
     /**
-    * <p> This is the associate manager
-    * </p>
+    * <p> This is the associate manager</p>
     * @param associateCustomer the new associate to be added
-    * @return void
-    * @see 
     * @since 1.0
     */
     public void AddAssociate(Associate associateCustomer)
@@ -85,11 +93,8 @@ public class CustomerManager {
     
     
     /**
-    * <p> This is the customer removal manager
-    * </p>
+    * <p> This is the customer removal manager</p>
     * @param targetCustomer the customer to be removed
-    * @return void
-    * @see 
     * @since 1.0
     */
     public void RemovePatron(Customer targetCustomer)
@@ -112,8 +117,6 @@ public class CustomerManager {
     /**
     * <p> This is the associate removal manager</p>
     * @param targetAssociate the associate to be removed
-    * @return void
-    * @see 
     * @since 1.0
     */
     public void RemoveAssociate(Associate targetAssociate)
@@ -136,6 +139,11 @@ public class CustomerManager {
         
     }
     
+    /**
+    * <p> This is the accessor for associates</p>
+    * @return associates a list of associates
+    * @since 1.0
+    */
     public HashMap<String, HashMap<String, Associate>> GetAssociates()
     {
         return this.associate;
@@ -143,9 +151,7 @@ public class CustomerManager {
     
     /**
     * <p> This is to get a derived list of all customers</p>
-    * @param 
-    * @return void
-    * @see 
+    * @return resultList a complete lsit of customers
     * @since 1.0
     */
     public HashMap<String,Customer> CustomerList()
@@ -164,6 +170,10 @@ public class CustomerManager {
         return resultList;
     }
     
+    /**
+    * <p> This is a utility function to print all the customers stored</p>
+    * @since 1.0
+    */
     public void PrintCustomers()
     {
         HashMap<String, Customer> printList = CustomerList();

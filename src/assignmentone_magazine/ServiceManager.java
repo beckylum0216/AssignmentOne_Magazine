@@ -30,9 +30,6 @@ import java.util.logging.Logger;
 
 /**
 * <p> This is the service manager. Contains the business logic of the application</p>
-* @param 
-* @return void
-* @see 
 * @since 1.0
 */
 public class ServiceManager {
@@ -47,9 +44,6 @@ public class ServiceManager {
     
     /**
     * <p> This is the service manager constructor</p>
-    * @param 
-    * @return void
-    * @see 
     * @since 1.0
     */
     public ServiceManager()
@@ -63,9 +57,7 @@ public class ServiceManager {
     
     /**
     * <p> This is the accessor for the customer list</p>
-    * @param 
     * @return magazines magazine lists
-    * @see 
     * @since 1.0
     */
     public CustomerManager GetCustomerList()
@@ -75,9 +67,7 @@ public class ServiceManager {
     
     /**
     * <p> This is the accessor for the magazine list</p>
-    * @param 
     * @return magazines magazine lists
-    * @see 
     * @since 1.0
     */
     public MagazineManager GetMagazineList()
@@ -86,10 +76,7 @@ public class ServiceManager {
     }
     
     /**
-    * <p> This function contains the logic for the invoicing customers</p>
-    * @param 
-    * @return 
-    * @see 
+    * <p> This function contains the logic for the invoicing customers</p> 
     * @since 1.0
     */
     public void InvoiceCustomers()
@@ -235,9 +222,7 @@ public class ServiceManager {
     
     /**
     * <p> This is the accessor to billed invoices </p>
-    * @param 
     * @return billedInvoice billed invoice list
-    * @see 
     * @since 1.0
     */
     public HashMap<String, HashMap<String,Invoice>> GetBilledInvoices()
@@ -247,9 +232,6 @@ public class ServiceManager {
     
     /**
     * <p> This function collates and print all the invoices in a statement </p>
-    * @param 
-    * @return void
-    * @see 
     * @since 1.0
     */
     public void PrintStatements()
@@ -294,8 +276,6 @@ public class ServiceManager {
     /**
     * <p> This is the mutator to the subscription list  </p>
     * @param newSubscription subscription record 
-    * @return void
-    * @see 
     * @since 1.0
     */
     public void AddSubscription(Subscription newSubscription )
@@ -341,9 +321,7 @@ public class ServiceManager {
     
     /**
     * <p> This is the accessor to subscription list </p>
-    * @param 
     * @return subscriptionList the list of subscription 
-    * @see 
     * @since 1.0
     */
     public HashMap<String, HashMap<String,Subscription>> GetSubscriptions()
@@ -373,9 +351,6 @@ public class ServiceManager {
     
     /**
     * <p> This is the accessor to the subscription List </p>
-    * @param 
-    * @return void
-    * @see 
     * @since 1.0
     */
     public void PrintSubscription()
@@ -400,9 +375,6 @@ public class ServiceManager {
     
     /**
     * <p> This function contains the logic for the emailing customers</p>
-    * @param 
-    * @return 
-    * @see 
     * @since 1.0
     */
     public void EmailCustomers()
@@ -518,9 +490,6 @@ public class ServiceManager {
     
     /**
     * <p> This function collates and print all the emails in the subscription </p>
-    * @param 
-    * @return void
-    * @see 
     * @since 1.0
     */
     public void PrintEmails()

@@ -5,7 +5,6 @@
  */
 package assignmentone_magazine;
 
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -21,9 +20,6 @@ import java.util.Arrays;
 
 /**
 * <p> Utility class for storing useful functions not directly associated with the primary function</p>
-* @param 
-* @return void
-* @see 
 * @since 1.0
 */
 public class Utility {
@@ -32,7 +28,6 @@ public class Utility {
     * <p> Utility function retrieving records from files</p>
     * @param filePath the file path to get data from a csv file, must not have spaces
     * @return customerRecords record list
-    * @see 
     * @since 1.0
     */
     public List<List<String>> CSVFileReader(String filePath)
@@ -58,8 +53,6 @@ public class Utility {
         {
             System.out.println(e);
         }
-        
-        
         
         return customerRecords;
     }
