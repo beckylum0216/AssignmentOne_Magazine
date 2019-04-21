@@ -83,6 +83,7 @@ public class ServiceManager {
     {
         LocalDate currentDate = LocalDate.now();
         
+        // Iterate through patrons
         for(Map.Entry pair: this.customerList.GetPatron().entrySet())
         {
             
@@ -90,12 +91,15 @@ public class ServiceManager {
             HashMap<String, Subscription> customerSubscription;
             customerSubscription = subscriptionList.get(currentCustomer.GetEmailAddress());
             
+            // get subscription information
             for(Map.Entry magazinePair: customerSubscription.entrySet())
             {
                 
                 Subscription currentSubs = (Subscription) magazinePair.getValue();
+                // select dates for every monday following the subscription date
                 ArrayList<LocalDate> invoiceDates = GetInvoiceDates(currentDate, currentSubs);
-                System.out.println("invoice array: " + invoiceDates.size());
+                
+                // invoicing the customer for every monday following the subscription date
                 for(int ii = 0; ii < invoiceDates.size(); ii += 1)
                 {
                     
@@ -128,23 +132,25 @@ public class ServiceManager {
                 
             }
             
-            
+            // invoicing the associates
             if(this.customerList.GetAssociates().containsKey(currentCustomer.GetEmailAddress()))
             {
                 
                 HashMap<String, Associate> associateMap = this.customerList.GetAssociates().get(currentCustomer.GetEmailAddress());
+                // iterating all the associates relating to the patron
                 for(Map.Entry associatePair: associateMap.entrySet())
                 {
                     Customer associateCustomer = (Customer) associatePair.getValue();
                     
                     HashMap<String, Subscription> associateSubscriptions;
                     associateSubscriptions = subscriptionList.get(associateCustomer.GetEmailAddress());
+                    // iterating though the associates subscriptions
                     for(Map.Entry associateSubsPair : associateSubscriptions.entrySet())
                     {
                         Subscription associateSubscription = (Subscription) associateSubsPair.getValue();
-                        
+                        // getting all the mondays following the subscription date
                         ArrayList<LocalDate> invoiceAssociateDates = this.GetInvoiceDates(currentDate, associateSubscription);
-                        
+                        // invoicing the patron customer
                         for(int ii = 0; ii < invoiceAssociateDates.size(); ii += 1)
                         {
                             
@@ -258,6 +264,8 @@ public class ServiceManager {
                 String currentPeriod = currentDate.getYear() + "" +currentDate.getMonthValue();
                 String periodInvoice = billedInvoice.get(customerKey).get(invoiceKey).GetInvoiceDate().getYear() + ""
                                         +billedInvoice.get(customerKey).get(invoiceKey).GetInvoiceDate().getMonth();
+                
+                // only prints invoices for the current month
                 if(currentPeriod.equals(periodInvoice))
                 {
                     billedInvoice.get(customerKey).get(invoiceKey).PrintInvoice();
@@ -283,12 +291,11 @@ public class ServiceManager {
         // testing if patron exists
         if(customerList.CustomerList().containsKey(newSubscription.GetSubscriptionEmail()))
         {
-            //Boolean check = magazineList.GetAllPublicationList().containsKey(newSubscription.GetSubbedPublication().GetMagazineName());
-            //System.out.println("Magazine State: " + check);
+           
             // testing if magazine exists
             if(magazineList.GetAllPublicationList().containsKey(newSubscription.GetSubbedPublication().GetMagazineName()))
             {
-                
+                // testing if subscription contains new subscription
                 if(subscriptionList.containsKey(newSubscription.GetSubscriptionEmail()))
                 {
                     if(subscriptionList.get(newSubscription.GetSubscriptionEmail()).containsKey(newSubscription.GetSubbedPublication().GetMagazineName()))
@@ -381,6 +388,7 @@ public class ServiceManager {
     {
         LocalDate currentDate = LocalDate.now();
         
+        // iterating through the patrons
         for(Map.Entry pair: this.customerList.GetPatron().entrySet())
         {
             
@@ -388,12 +396,15 @@ public class ServiceManager {
             HashMap<String, Subscription> customerSubscription;
             customerSubscription = subscriptionList.get(currentCustomer.GetEmailAddress());
             
+            // iterating though the subscriptions
             for(Map.Entry magazinePair: customerSubscription.entrySet())
             {
                 
                 Subscription currentSubs = (Subscription) magazinePair.getValue();
+                // gets all the mondays following the subscription date
                 ArrayList<LocalDate> emailDates = GetInvoiceDates(currentDate, currentSubs);
                 
+                // iterating through all the email dates
                 for(int ii = 0; ii < emailDates.size(); ii += 1)
                 {
                     Datum emailDate = new Datum(emailDates.get(ii).getDayOfMonth(), emailDates.get(ii).getMonthValue(), emailDates.get(ii).getYear());
@@ -425,7 +436,7 @@ public class ServiceManager {
                 
             }
             
-            
+            // getting all the associates subscription for emailling
             if(this.customerList.GetAssociates().containsKey(currentCustomer.GetEmailAddress()))
             {
                 
@@ -494,7 +505,6 @@ public class ServiceManager {
     */
     public void PrintEmails()
     {
-        System.out.println("Running print emails");
         LocalDateTime currentDate = LocalDateTime.now();
         for(Map.Entry pair: this.generatedEmails.entrySet())
         {
@@ -517,6 +527,7 @@ public class ServiceManager {
                 String currentPeriod = currentDate.getYear() + "" +currentDate.getMonthValue();
                 String periodInvoice = generatedEmails.get(customerKey).get(emailKey).GetEmailDate().getYear() + ""
                                         +generatedEmails.get(customerKey).get(emailKey).GetEmailDate().getMonth();
+                // only prints email for the current period
                 if(currentPeriod.equals(periodInvoice))
                 {
                     generatedEmails.get(customerKey).get(emailKey).PrintEmail();

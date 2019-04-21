@@ -26,12 +26,6 @@ public class Customer {
     private String paymentMethod;
     
     /**
-    * <p> Default Customer constructor</p>
-    * @since 1.0
-    */
-    public Customer(){}
-    
-    /**
     * <p> Parameterised Customer constructor</p>
     * @param inputFirstName customer first name 
     * @param inputLastName customer last name

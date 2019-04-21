@@ -44,7 +44,7 @@ public class CustomerTest {
     public void testSetFirstName() {
         System.out.println("SetFirstName");
         String inputFirstName = "baldy";
-        Customer instance = new Customer();
+        Customer instance = new Customer("genos", "Saitama", "bs@wanpan.co.jp", "credit Card");
         instance.SetFirstName(inputFirstName);
         
     }
@@ -55,7 +55,7 @@ public class CustomerTest {
     @Test
     public void testGetFirstName() {
         System.out.println("GetFirstName");
-        Customer instance = new Customer();
+        Customer instance = new Customer("baldy", "Saitama", "bs@wanpan.co.jp", "credit Card");
         String expResult = "baldy";
         instance.SetFirstName(expResult);
         String result = instance.GetFirstName();

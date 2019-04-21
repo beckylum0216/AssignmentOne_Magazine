@@ -72,6 +72,7 @@ public class CustomerManager {
         // checks if customer exists 
         if(patron.containsKey(associateCustomer.GetPatronEmail()))
         {
+            // checks if associate exists
             if(associate.containsKey(associateCustomer.GetPatronEmail()))
             {
                 associate.get(associateCustomer.GetPatronEmail()).put(associateCustomer.GetEmailAddress(),associateCustomer);
@@ -99,6 +100,7 @@ public class CustomerManager {
     */
     public void RemovePatron(Customer targetCustomer)
     {
+        // keeping data integrity
         if(associate.containsKey(targetCustomer.GetEmailAddress()))
         {
             patron.remove(targetCustomer.GetEmailAddress());
@@ -121,6 +123,7 @@ public class CustomerManager {
     */
     public void RemoveAssociate(Associate targetAssociate)
     {
+        
         if(associate.containsKey(targetAssociate.GetPatronEmail()))
         {
             if(associate.get(targetAssociate.GetPatronEmail()).containsKey(targetAssociate.GetEmailAddress()))

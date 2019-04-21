@@ -45,7 +45,7 @@ public class AssociateTest {
     public void testSetPatronEmail() {
         System.out.println("SetPatronEmail");
         String inputEmail = "blah@abc.net.au";
-        Associate instance = new Associate();
+        Associate instance = new Associate("genos", "Saitama", "bs@wanpan.co.jp", "credit Card", inputEmail);
         instance.SetPatronEmail(inputEmail);
         Assert.assertEquals("blah@abc.net.au", instance.GetPatronEmail());
     }
@@ -57,7 +57,7 @@ public class AssociateTest {
     public void testGetPatronEmail() {
         System.out.println("GetPatronEmail");
         String inputEmail = "blah@abc.net.au";
-        Associate instance = new Associate();
+        Associate instance = new Associate("genos", "Saitama", "bs@wanpan.co.jp", "credit Card", inputEmail);
         instance.SetPatronEmail(inputEmail);
         String result = instance.GetPatronEmail();
         assertEquals("blah@abc.net.au", result);

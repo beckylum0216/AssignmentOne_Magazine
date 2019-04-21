@@ -18,14 +18,6 @@ public class Associate extends Customer
 {    
     private String patronEmail;
     
-    /**
-    * <p> Default Associate constructor</p>
-    * @since 1.0
-    */
-    public Associate()
-    {
-        super();
-    }
     
     /**
     * <p> Parameterised Associate constructor</p>

@@ -23,7 +23,9 @@ public class AssignmentOne_Magazine {
         boolean theFlag = true;
        
         int theChoice;
-       
+        
+        studentInfo();
+        
         do
         {
             try
@@ -47,10 +49,10 @@ public class AssignmentOne_Magazine {
                         UploadSubscription();
                         break;
                     case 5:
-                        PrintCorrespondence();
+                        GenerateEmails();
                         break;
                     case 6:
-                        PrintInvoices();
+                        GenerateInvoices();
                         break;
                     case 7:
                         RemoveCustomers();
@@ -64,7 +66,12 @@ public class AssignmentOne_Magazine {
                     case 10:
                         PrintSubscriptionList();
                         break;
-                    
+                    case 11:
+                        PrintCorrespondence();
+                        break;
+                    case 12:
+                        PrintInvoices();
+                        break;
                      
                     default:
                         System.out.println("Please enter a valid choice");
@@ -82,6 +89,20 @@ public class AssignmentOne_Magazine {
         
     }
     
+    /**
+     * Method prints out the assignment's student's details.
+     */
+    public static void studentInfo()
+    {
+        System.out.println("Name:               Rebecca Lim");
+        System.out.println("Student Number:     33111264");
+        System.out.println("Enrolement:         Internal");
+        System.out.println("Tutor:              Ferdous Sohel");
+        System.out.println("Tutorial:           Monday, 4.30pm");
+        System.out.println();
+    }
+    
+    
     public static void Menu()
     {
         System.out.println("Menu");
@@ -90,12 +111,14 @@ public class AssignmentOne_Magazine {
         System.out.println("2: Press 2 to add customer data.");
         System.out.println("3: Press 3 to add magazine data.");
         System.out.println("4: Press 4 to add subscription data");
-        System.out.println("5: Press 5 to print subscription emails");
-        System.out.println("6: Press 6 to print monthly invoice emails");
+        System.out.println("5: Press 5 to generate subscription emails");
+        System.out.println("6: Press 6 to generate monthly invoice emails");
         System.out.println("7: Press 7 to remove customer");
         System.out.println("8: Press 8 to print customer list.");
         System.out.println("9: Press 9 to print magazine list.");
         System.out.println("10: Press 10 to print subscription list.");
+        System.out.println("11: Press 11 to print subscription emails");
+        System.out.println("12: Press 12 to print invoice emails");
         
     }
     
@@ -119,7 +142,6 @@ public class AssignmentOne_Magazine {
             }
             else
             {
-                System.out.println("tempList element:" + tempList.get(ii).get(4));
                 Associate tempAssociate = new Associate(tempList.get(ii).get(0), 
                                                     tempList.get(ii).get(1),
                                                     tempList.get(ii).get(2),
@@ -146,7 +168,7 @@ public class AssignmentOne_Magazine {
         
         for(int ii = 0; ii < tempList.size(); ii += 1)
         {
-            System.out.println("tempList: "+ tempList.get(ii).size());
+            
             if(tempList.get(ii).size() == 2 )
             {
                 Magazine tempMagazine = new Magazine(tempList.get(ii).get(0), 
@@ -178,7 +200,6 @@ public class AssignmentOne_Magazine {
         String filePath = "src/assignmentOne_magazine/SubscriptionList.txt";
         List<List<String>> tempList = ut.CSVFileReader(filePath);
         
-        System.out.println(tempList.size());
         for(int ii = 0; ii < tempList.size(); ii += 1)
         {
             
@@ -216,15 +237,24 @@ public class AssignmentOne_Magazine {
         magazineService.PrintSubscription();
     }
     
-    public static void PrintInvoices()
+    public static void GenerateInvoices()
     {
         magazineService.InvoiceCustomers();
+    }
+    
+    public static void PrintInvoices()
+    {
+        
         magazineService.PrintStatements();
+    }
+    
+    public static void GenerateEmails()
+    {
+        magazineService.EmailCustomers();
     }
     
     public static void PrintCorrespondence()
     {
-        magazineService.EmailCustomers();
         magazineService.PrintEmails();
     }
     
